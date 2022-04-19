@@ -1,0 +1,53 @@
+.wrapper {
+  @apply flex items-center justify-between font-sans border-solid border-b 
+  border-b-[rgba(0,0,0,0.1)] py-[15px] px-5;
+}
+
+svg {
+  @apply inline-block align-top;
+}
+
+h1 {
+  @apply inline-block align-top text-[20px] font-[900] leading-[1] m-[6px_0_6px_10px];
+}
+
+button + button {
+  @apply ml-[10px];
+}
+
+.welcome {
+  @apply text-[14px] text-[#333] mr-[10px];
+}
+
+/* .wrapper {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: top;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1;
+  margin: 6px 0 6px 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+button + button {
+  margin-left: 10px;
+}
+
+.welcome {
+  color: #333;
+  font-size: 14px;
+  margin-right: 10px;
+} */

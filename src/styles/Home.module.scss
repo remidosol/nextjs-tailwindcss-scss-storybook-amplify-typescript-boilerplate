@@ -1,0 +1,61 @@
+.container {
+  @apply py-0 px-8;
+}
+
+.main {
+  @apply flex min-h-screen py-16 px-0 flex-1 flex-col justify-center items-center;
+}
+
+.footer {
+  @apply flex flex-1 py-8 px-0 border-solid border-t border-t-[#eaeaea] justify-center items-center;
+
+  a {
+    @apply flex justify-center items-center grow;
+  }
+}
+
+.title {
+  @apply m-0 leading-[1.15] text-[4rem] text-center;
+
+  a {
+    @apply text-[#0070f3] no-underline hover:underline focus:underline active:underline;
+  }
+}
+
+.description {
+  @apply text-center my-16 mx-0 leading-[1.15] text-[1.5rem];
+}
+
+.code {
+  @apply bg-[#fafafa] rounded-[5px] p-3 text-[1.1rem] font-mono;
+}
+
+.grid {
+  @apply flex items-center justify-center flex-wrap max-w-[800px] sm:flex-row md:flex-col lg:flex-row;
+}
+
+.card {
+  @apply m-4 p-[1.5rem] text-left text-inherit no-underline 
+  border-solid border-[1px] border-[#eaeaea] rounded-[10px] max-w-[300px];
+  @apply transition-[color] ease-in-out hover:text-[#0070f3] focus:text-[#0070f3] active:text-[#0070f3];
+  @apply transition-[border-color] ease-in-out hover:text-[#0070f3] focus:text-[#0070f3] active:text-[#0070f3];
+
+  h2 {
+    @apply mb-4 text-[1.5rem];
+  }
+
+  p {
+    @apply m-0 text-[1.25rem] leading-[1.5];
+  }
+}
+
+.logo {
+  @apply h-[1em] ml-2;
+}
+
+/* @media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+} */

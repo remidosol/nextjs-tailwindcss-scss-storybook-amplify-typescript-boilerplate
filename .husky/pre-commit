@@ -1,0 +1,34 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# https://paulintrognon.fr/blog/typescript-prettier-eslint-next-js
+
+
+#######################################################################################
+######################### IF YOU WANT TO USE JUST HUSKY ###############################
+#######################################################################################
+# https://typicode.github.io/husky/
+# Run the tsc command to make sure there are no TypeScript errors
+# Run the eslint command to make sure there are no ESLint errors
+# Format our code using prettier
+
+# yarn tsc --noEmit && yarn eslint . && yarn prettier --write .
+
+# Note: If you want to skip the check, you can add a --no-verify flag to your commit command. 
+# For example: git commit --no-verify -m "Update README.md"
+#######################################################################################
+#######################################################################################
+
+
+#######################################################################################
+#################### IF YOU WANT TO USE HUSKY WITH LINT-STAGED ########################
+#######################################################################################
+
+yarn lint-staged # this will only checks your code when necessary 
+# (e.g. if one md or json file has been changed it will run just prettier command)
+
+# do not forget to create lint-staged.config.js file
+# for linting and error checking configuration before commit
+
+#######################################################################################
+#######################################################################################
