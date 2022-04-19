@@ -162,6 +162,8 @@ There are two routes that are implemented :
 - `/` : A static route that uses `getStaticProps` to load data from AppSync and renders it on the server (Code in [pages/index(amplify-example).js](./pages/index(amplify-example).js))
 - `/todo/[id]` : A dynamic route that uses `getServerSideProps` and the id from the provided context to load a single todo from AppSync and render it on the server. (Code in [pages/todo(amplify-example)/:[id].js](/pages/todo(amplify-example)/[id].js))
 
+The files or folders that their names contain `(amplify-example)` aren't tested yet. These files/folders have taken from [Next.js example that is using aws-amplify](https://github.com/vercel/next.js/tree/canary/examples/with-aws-amplify)
+
 <hr>
 
 ## Edit GraphQL Schema
