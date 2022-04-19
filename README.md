@@ -10,7 +10,7 @@ With AWS Amplify, you are able to solve authentication/social authentication iss
 
 The app that you built with AWS Amplify is also a serverless app that uses some services such as AWS AppSync(contains GraphQL schemas etc.), AWS Cognito User Pools, AWS Lambda Functions etc.
 
-TailwindCSS configuration have been done in the files that are [`tailwind.config.js`](tailwind.config.js), [`postcss.config.js`](postcss.config.js), [`./storybook/main.js`](./.storybook/main.js), [`./storybook/preview.js`](./.storybook/preview.js) for using TailwindCSS via SCSS in Next and StoryBook files.
+TailwindCSS configuration have been done in the files that are [`tailwind.config.js`](tailwind.config.js), [`postcss.config.js`](postcss.config.js), [`.storybook/main.js`](./.storybook/main.js), [`.storybook/preview.js`](./.storybook/preview.js) for using TailwindCSS via SCSS in Next and StoryBook files.
 
 This repo also includes [**Husky**](https://typicode.github.io/husky/), [**Lint-Stage**](https://github.com/okonet/lint-staged), **ESLint** and **Prettier**.
 
@@ -159,8 +159,8 @@ This example shows how to build a server rendered web application with NextJS an
 
 There are two routes that are implemented :
 
-- `/` : A static route that uses `getStaticProps` to load data from AppSync and renders it on the server (Code in [pages/index(amplify-example).js](<./pages/index(amplify-example).js>))
-- `/todo/[id]` : A dynamic route that uses `getServerSideProps` and the id from the provided context to load a single todo from AppSync and render it on the server. (Code in [pages/todo(amplify-example)/:[id].js](</pages/todo(amplify-example)/[id].js>))
+- `/` : A static route that uses `getStaticProps` to load data from AppSync and renders it on the server (Code in [pages/index(amplify-example).js](./pages/index(amplify-example).js))
+- `/todo/[id]` : A dynamic route that uses `getServerSideProps` and the id from the provided context to load a single todo from AppSync and render it on the server. (Code in [pages/todo(amplify-example)/:[id].js](/pages/todo(amplify-example)/[id].js))
 
 <hr>
 
