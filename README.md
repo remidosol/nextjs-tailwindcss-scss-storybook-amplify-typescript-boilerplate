@@ -6,9 +6,7 @@ This repo is a boilerplate that created for using some useful techs together. Th
 
 > AWS Amplify helps front-end web and mobile developers build apps faster. It consists of a development framework and a web hosting service to build and deploy secure and scalable mobile and web applications powered by AWS.
 
-With AWS Amplify, you are able to solve authentication/social authentication issues very easily.
-
-The app that you built with AWS Amplify is also a serverless app that uses some services such as AWS AppSync(contains GraphQL schemas etc.), AWS Cognito User Pools, AWS Lambda Functions etc.
+The app that you built with AWS Amplify is also a serverless app that uses some services such as AWS AppSync(contains GraphQL schemas etc.), AWS Cognito User Pools, AWS Lambda Functions, AWS DynamoDB etc.
 
 TailwindCSS configuration have been done in the files that are [`tailwind.config.js`](tailwind.config.js), [`postcss.config.js`](postcss.config.js), [`.storybook/main.js`](./.storybook/main.js), [`.storybook/preview.js`](./.storybook/preview.js) for using TailwindCSS via SCSS in Next and StoryBook files.
 
@@ -36,13 +34,13 @@ I've done all the configuration and test them manually.
 1. [Sign up](https://portal.aws.amazon.com/billing/signup#/start) for an AWS account
 2. Install the AWS Amplify cli:
 
-```bash
+```sh
 npm install -g @aws-amplify/cli
 ```
 
 3. Configure the Amplify cli
 
-```bash
+```sh
 amplify configure
 ```
 
@@ -52,7 +50,7 @@ amplify configure
 
 ### Initialize Amplify
 
-```bash
+```sh
 $ amplify init
 
 # <Interactive>
@@ -75,7 +73,7 @@ $ amplify init
 
 ### Add the API
 
-```bash
+```sh
 $ amplify add api
 # <Interactive>
 ? Please select from one of the below mentioned services (Use arrow keys)
@@ -92,7 +90,7 @@ $ amplify add api
 
 ### Deploy infrastructure
 
-```bash
+```sh
 $ amplify push
 # <Interactive>
 ? Are you sure you want to continue? Y
@@ -112,7 +110,7 @@ $ amplify push
 
 ## Install & Run
 
-```bash
+```sh
 npm install
 # or
 yarn
@@ -120,13 +118,13 @@ yarn
 
 You need to enable Husky:
 
-```bash
+```sh
 yarn husky install
 ```
 
 Now you can run development server:
 
-```bash
+```sh
 npm run dev
 # or
 yarn dev
@@ -135,7 +133,7 @@ yarn dev
 <hr>
 Or run the StoryBook:
 
-```bash
+```sh
 npm run storybook
 # or
 yarn storybook
@@ -176,7 +174,7 @@ The files or folders that contain `(amplify-example)` in their names aren't test
 
 Make sure to commit your changes before doing this.
 
-```bash
+```sh
 mv amplify/backend/api/yourprojectname/schema.graphql ./schema.graphql
 rm -rf amplify/ src/
 amplify init
@@ -187,7 +185,7 @@ amplify push
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about mentione tech stack, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
