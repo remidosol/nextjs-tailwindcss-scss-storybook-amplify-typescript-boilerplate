@@ -36,13 +36,13 @@ I've done all the configuration and test them manually.
 1. [Sign up](https://portal.aws.amazon.com/billing/signup#/start) for an AWS account
 2. Install the AWS Amplify cli:
 
-```sh
+```bash
 npm install -g @aws-amplify/cli
 ```
 
 3. Configure the Amplify cli
 
-```sh
+```bash
 amplify configure
 ```
 
@@ -75,7 +75,7 @@ $ amplify init
 
 ### Add the API
 
-```sh
+```bash
 $ amplify add api
 # <Interactive>
 ? Please select from one of the below mentioned services (Use arrow keys)
@@ -92,7 +92,7 @@ $ amplify add api
 
 ### Deploy infrastructure
 
-```sh
+```bash
 $ amplify push
 # <Interactive>
 ? Are you sure you want to continue? Y
@@ -176,7 +176,7 @@ The files or folders that contain `(amplify-example)` in their names aren't test
 
 Make sure to commit your changes before doing this.
 
-```sh
+```bash
 mv amplify/backend/api/yourprojectname/schema.graphql ./schema.graphql
 rm -rf amplify/ src/
 amplify init
