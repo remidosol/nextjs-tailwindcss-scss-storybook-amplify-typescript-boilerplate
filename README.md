@@ -4,15 +4,20 @@ This repo is a boilerplate that created for using some useful techs together. Th
 
 In this section, I'm going to share informations via questions about tech stack of this repo using some useful resources.
 
+Tech Stack:
+
+- [Next.js 12](https://nextjs.org/)
+- [SASS/SCSS](https://sass-lang.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [StoryBook](https://storybook.js.org/)
+- [AWS Amplify](https://docs.amplify.aws/)
+- [TypeScript](https://www.typescriptlang.org/)
+
 ## About AWS Amplify
 
 > AWS Amplify helps front-end web and mobile developers build apps faster. It consists of a development framework and a web hosting service to build and deploy secure and scalable mobile and web applications powered by AWS.
 
-<u>
-
 ### What’s included in AWS Amplify?
-
-</u>
 
 > AWS Amplify includes a wide variety of open-source libraries and drag-and-drop UI components developers can use as building blocks for their apps. It also has a built-in CLI you can use to build your backend. And for an additional fee, AWS Amplify Console provides web hosting services for your app.
 
@@ -27,29 +32,17 @@ In this section, I'm going to share informations via questions about tech stack 
 > - Authentication
 >   - Access ready-to-use workflows for MFA, single sign-on, forgot password, etc.
 
-<u>
-
 ### What is AWS Amplify compatible with?
-
-</u>
 
 > The framework supports iOS, Android, Web, and React Native mobile apps, and React, Ionic, Angular, and Vue.js for web apps.
 
-<u>
-
 ### Who should use AWS Amplify?
-
-</u>
 
 > AWS Amplify is awesome for people who don’t want to build their backend or other components from scratch. The Amplify components make it easy to set up the building blocks of your app without doing all the legwork yourself.
 
 > That’s a pretty broad use case, but that’s the point—it’s meant to appeal to a large base.
 
-<u>
-
 ### What companies have used AWS Amplify?
-
-</u>
 
 > The [public customer list](https://aws.amazon.com/amplify/customers/) for AWS Amplify isn’t very robust yet. They do have a couple heavy-hitters though, like millennial-favorite fitness app Noom and location tracking cloud service HyperTrack.
 
@@ -59,11 +52,7 @@ The app that you built with AWS Amplify is also a serverless app that can use so
 
 ## About SASS/SCSS, TailwindCSS and CSS Modules
 
-<u>
-
 ### What is SASS?
-
-</u>
 
 > - SASS stands for Syntactically Awesome Stylesheet
 > - SASS is an extension to CSS
@@ -73,21 +62,13 @@ The app that you built with AWS Amplify is also a serverless app that can use so
 > - SASS was designed by Hampton Catlin and developed by Natalie Weizenbaum in 2006
 > - SASS is free to download and use
 
-<u>
-
 ### Why Use SASS?
-
-</u>
 
 > Stylesheets are getting larger, more complex, and harder to maintain. This is where a CSS pre-processor can help.
 
 > SASS lets you use features that do not exist in CSS, like variables, nested rules, mixins, imports, inheritance, built-in functions, and other stuff.
 
-<u>
-
 ### What is the difference between SCSS and SASS?
-
-</u>
 
 > SASS (Syntactically Awesome Style Sheets) is a pre-processor scripting language that will be compiled or interpreted into CSS. SassScript is itself a scripting language whereas SCSS is the main syntax for the SASS which builds on top of the existing CSS syntax. It makes use of semicolons and brackets like CSS (Cascaded Style Sheets).
 
@@ -103,30 +84,18 @@ The app that you built with AWS Amplify is also a serverless app that can use so
 
 <hr>
 
-<u>
-
 ### What is TailwindCSS?
-
-</u>
 
 > Tailwind CSS is basically a utility-first CSS framework for rapidly building custom user interfaces. It is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override.
 
 > The beauty of this thing called tailwind is it doesn’t impose design specification or how your site should look like, you simply bring tiny components together to construct a user interface that is unique. What Tailwind simply does is take a ‘raw’ CSS file, processes this CSS file over a configuration file, and produces an output.
 
-<u>
-
 ### Why Tailwind CSS?
-
-</u>
 
 > - Faster UI building process
 > - It is a utility-first CSS framework which means we can use utility classes to build custom designs without writing CSS as in traditional approach.
 
-<u>
-
 ### Advantages of Tailwind CSS
-
-</u>
 
 > - No more silly names for CSS classes and Id’s.
 > - Minimum lines of Code in CSS file.
@@ -137,11 +106,7 @@ The app that you built with AWS Amplify is also a serverless app that can use so
 
 <hr>
 
-<u>
-
 ### What are CSS Modules and why do we need them?
-
-</u>
 
 > According to the [repo](https://github.com/css-modules/css-modules), CSS modules are:
 
@@ -181,11 +146,7 @@ element.innerHTML = `<h1 class="${styles.title}">
 
 > This is what is meant by styles being scoped. They are scoped to particular templates. If we have a `buttons.css` file we would import it only into a buttons.js template and a `.btn` class within would be inaccessible to some other template (e.g. forms.js), unless we imported it specifically there too.
 
-<u>
-
 #### Why should we use CSS Modules?
-
-</u>
 
 > With CSS Modules, it’s a guarantee that all the styles for a single component:
 
@@ -359,7 +320,7 @@ There are two routes that are implemented:
 - `/` : A static route that uses `getStaticProps` to load data from AppSync and renders it on the server (Code in [pages/index(amplify-example).js](<./pages/index(amplify-example).js>))
 - `/todo/[id]` : A dynamic route that uses `getServerSideProps` and the id from the provided context to load a single todo from AppSync and render it on the server. (Code in [pages/todo(amplify-example)/:[id].js](</pages/todo(amplify-example)/[id].js>))
 
-The files or folders that contain `(amplify-example)` in their names aren't tested yet. These files/folders have taken from [Next.js example which is using aws-amplify](https://github.com/vercel/next.js/tree/canary/examples/with-aws-amplify)
+The folders or files that contain `(amplify-example)` in their names aren't tested yet. These files/folders have taken from [Next.js example which is using aws-amplify](https://github.com/vercel/next.js/tree/canary/examples/with-aws-amplify)
 
 ### Edit GraphQL Schema
 
