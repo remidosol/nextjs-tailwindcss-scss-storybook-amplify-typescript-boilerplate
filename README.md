@@ -1,17 +1,33 @@
-This repo is a boilerplate that created for using some useful techs together. The mentioned techs are **Next.js, TailwindCSS, SASS/SCSS, StoryBook, AWS Amplify and TypeScript**.
+# Boilerplate and Starter for Next JS 12+, Tailwind CSS 3, StoryBook and TypeScript
+
+🚀 Boilerplate and Starter for **Next.js, Tailwind CSS, StoryBook and TypeScript** ⚡️ Made with: _Next.js, TailwindCSS, SASS/SCSS, PostCSS, Husky, Lint-Staged, VSCode, StoryBook, AWS Amplify and TypeScript_.
+
+Clone this project and use it to create your own Next.js project.
+
+## Features
+
+- 🔥 [Next.js 12](https://nextjs.org/) for Static Site Generator
+- 🎨 Integrate with [Tailwind CSS](https://tailwindcss.com/) and [SASS/SCSS](https://sass-lang.com/)
+- 💅 [PostCSS](https://postcss.org/) for processing Tailwind CSS
+- 🎉 Type checking [TypeScript](https://www.typescriptlang.org/)
+- ✅ Strict Mode for TypeScript and React 18
+- ✏️ Linter with [ESLint](https://eslint.org/) (default NextJS, NextJS Core Web Vitals, Tailwind CSS and StoryBook configuration)
+- 🛠 Code Formatter with [Prettier](https://prettier.io/)
+- 🦊 [Husky](https://typicode.github.io/husky/) for Git Hooks
+- 🚫 [Lint-Staged](https://github.com/okonet/lint-staged) for running linters on Git staged files
+- 🗂 VSCode configuration: Debug, Settings, Tasks and extension for PostCSS, ESLint, Prettier, TypeScript
+- 🙌 [StoryBook](https://storybook.js.org/) for streamlining UI development, testing, and documentation
+- 🦾 [AWS Amplify](https://docs.amplify.aws/) for providing serverless API easily and faster via [GraphQL](https://graphql.org/).
+
+## Requirements
+
+- Node.js 14+ and yarn or npm
+
+<hr>
 
 # Introduction (TL;DR)
 
 In this section, I'm going to share informations via questions about tech stack of this repo using some useful resources.
-
-Tech Stack:
-
-- [Next.js 12](https://nextjs.org/)
-- [SASS/SCSS](https://sass-lang.com/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [StoryBook](https://storybook.js.org/)
-- [AWS Amplify](https://docs.amplify.aws/)
-- [TypeScript](https://www.typescriptlang.org/)
 
 ## About AWS Amplify
 
@@ -172,19 +188,147 @@ element.innerHTML = `<div class="${buttons.red} ${padding.large}">`
 
 # Configuration
 
-PostCSS/TailwindCSS/StoryBook configuration have been done in the files that are [`tailwind.config.js`](tailwind.config.js), [`postcss.config.js`](postcss.config.js), [`.storybook/main.js`](./.storybook/main.js), [`.storybook/preview.js`](./.storybook/preview.js) for using TailwindCSS via SCSS/SASS.
+## Styling Configuration
 
-This repo also includes [**Husky**](https://typicode.github.io/husky/), [**Lint-Stage**](https://github.com/okonet/lint-staged), [**ESLint**](https://eslint.org/) and [**Prettier**](https://prettier.io/).
+First, I created [`tailwind.config.js`](./tailwind.config.js) and [`postcss.config.js`](./postcss.config.js) files. Then I added blocks which are below:
 
-ESLint and Prettier configurations have been done in [`.eslintrc.json`](./.eslintrc.json), [`.prettierrc.json`](./.prettierrc.json) and [`.vscode/settings.json`](./.vscode/settings.json).
+```js
+// tailwind.config.js
 
-Husky/lint-stage configuration have been done in [`.husky/pre-commit`](./.husky/pre-commit) and [`lint-staged.config.js`](./lint-staged.config.js).
+module.exports = {
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-I've done all the configuration and test them manually.
+```js
+// postcss.config.js
+
+module.exports = {
+  plugins: ['tailwindcss', 'autoprefixer', 'tailwindcss/nesting'],
+}
+```
+
+The most configuration takes my time was StoryBook configuration because I wanted to integrate StoryBook to Tailwind CSS that is able to be compiled in SASS/SCSS files.
+
+Here are `addons` in [`.storybook/main.js`](./.storybook/main.js) file:
+
+```js
+addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/preset-scss', // added later
+    { // added later
+      name: '@storybook/addon-postcss',
+      options: {
+        cssLoaderOptions: {
+          importLoaders: 1,
+        },
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
+  ],
+```
+
+And `webpackFinal`:
+
+```js
+webpackFinal: async (config) => {
+  config.resolve.alias = {
+    ...config.resolve?.alias,
+    '@': [
+      require('path').resolve(__dirname, '../src/'),
+      require('path').resolve(__dirname, '../'),
+    ],
+  }
+
+  config.resolve.roots = [
+    require('path').resolve(__dirname, '../public'),
+    'node_modules',
+  ]
+
+  config.module.rules.push({
+    // this rule is for using TailwindCSS in .sass and .scss files.
+    test: /\.s[ac]ss$/,
+    use: [
+      {
+        loader: 'postcss-loader',
+        options: {
+          postcssOptions: {
+            plugins: [require('tailwindcss'), require('autoprefixer')],
+          },
+        },
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          implementation: require('sass'),
+        },
+      },
+    ],
+    include: require('path').resolve(__dirname, '../'),
+  })
+
+  return config
+}
+```
+
+Here is [`.storybook/preview.js`](./.storybook/preview.js):
+
+```js
+import '../src/styles/globals.scss' //For using Tailwind CSS in global scope for StoryBook
+import * as NextImage from 'next/image' // For previewing images in StoryBook
+
+const OriginalNextImage = NextImage.default
+
+Object.defineProperty(NextImage, 'default', {
+  configurable: true,
+  value: (props) => <OriginalNextImage {...props} unoptimized />,
+})
+
+export const parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+  previewTabs: {
+    'storybook/docs/panel': { index: -1 },
+  },
+}
+```
+
+## ESLint and Prettier Configuration
+
+ESLint and Prettier configurations have been done in [`.eslintrc.json`](./.eslintrc.json), [`.prettierrc.json`](./.prettierrc.json) files and [`.vscode`](./.vscode) folder.
+
+There are not much rules, so you're free to change the rules.
+
+## Husky and Lint-Staged Configuration
+
+You need to enable Husky:
+
+```sh
+yarn husky install
+```
+
+Then a folder is going to be created under the `.husky` folder named as "`_`".
+
+Husky "`pre commit`" configuration have been done in [`.husky/pre-commit`](./.husky/pre-commit) and lint-stage configuration have been done in [`lint-staged.config.js`](./lint-staged.config.js).
+
+Now, when you use `git commit -m "something"` command, it will run lint-staged scripts according to configuration in [`lint-staged.config.js`](<(./lint-staged.config.js)>) if type checking and/or linting is necessary.
 
 # Getting Started
 
-> I've been using yarn therefore there is yarn.lock file, I recommend you to use yarn.
+> I've been using yarn therefore there is yarn.lock file, I recommend you to use yarn for this repo.
 
 ## Initialize and deploy the Amplify project
 
@@ -276,12 +420,6 @@ npm install
 yarn
 ```
 
-You need to enable Husky:
-
-```sh
-yarn husky install
-```
-
 Now you can run development server:
 
 ```sh
@@ -358,3 +496,4 @@ To learn more about mentione tech stack, take a look at the following resources:
 - [What is SASS?](https://www.w3schools.com/sass/sass_intro.php) - A resource of this repo's Readme.md
 - [What is the difference between SCSS and SASS?](https://www.geeksforgeeks.org/what-is-the-difference-between-scss-and-sass/) - A resource of this repo's Readme.md
 - [What are CSS Modules and why do we need them?](https://css-tricks.com/css-modules-part-1-need/) - A resource of this repo's Readme.md
+- [A litte help](https://github.com/ixartz/Next-js-Boilerplate) - A litte help for creating Readme file for this repo
