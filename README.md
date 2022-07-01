@@ -3,6 +3,7 @@
 🚀 Boilerplate and Starter for **Next.js, Tailwind CSS, StoryBook and TypeScript** ⚡️ Made with: _Next.js, TailwindCSS, SASS/SCSS, PostCSS, Husky, Lint-Staged, VSCode, StoryBook, AWS Amplify and TypeScript_.
 
 Clone this project and use it to create your own Next.js project.
+### Note: There are some improvements that have to do about deployment. Due to this, this boilerplate is not completed yet.
 
 ## Features
 
@@ -22,8 +23,6 @@ Clone this project and use it to create your own Next.js project.
 ## Requirements
 
 - Node.js 14+ and yarn or npm
-
-### Note: There are some improvements that have to do about deployment. Due to this, this boilerplate is not completed yet.
 
 <hr>
 
