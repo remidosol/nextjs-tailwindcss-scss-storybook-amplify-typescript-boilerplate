@@ -23,6 +23,8 @@ Clone this project and use it to create your own Next.js project.
 
 - Node.js 14+ and yarn or npm
 
+### Note: There are some improvements that have to do about deployment. Due to this, this boilerplate is not completed yet.
+
 <hr>
 
 # Introduction (TL;DR)
