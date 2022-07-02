@@ -497,4 +497,4 @@ To learn more about mentione tech stack, take a look at the following resources:
 - [What is SASS?](https://www.w3schools.com/sass/sass_intro.php) - A resource of this repo's Readme.md
 - [What is the difference between SCSS and SASS?](https://www.geeksforgeeks.org/what-is-the-difference-between-scss-and-sass/) - A resource of this repo's Readme.md
 - [What are CSS Modules and why do we need them?](https://css-tricks.com/css-modules-part-1-need/) - A resource of this repo's Readme.md
-- [A litte help](https://github.com/ixartz/Next-js-Boilerplate) - A litte help for creating Readme file for this repo
+- [A little help](https://github.com/ixartz/Next-js-Boilerplate) - A little help for creating Readme file for this repo
